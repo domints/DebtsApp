@@ -19,6 +19,12 @@ namespace DebtsApp.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((_, config) =>
+                {
+                    config.SetBasePath(Directory.GetCurrentDirectory());
+                    config.AddJsonFile(
+                        $"secrets.json", optional: false, reloadOnChange: true);
+                })
                 .UseStartup<Startup>();
     }
 }

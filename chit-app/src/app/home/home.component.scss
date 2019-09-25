@@ -1,0 +1,22 @@
+.bg-column {
+    background-image: url('/assets/img/money-bg-2.jpg');
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-position: center center;
+    background-blend-mode: multiply;
+}
+
+a[nbButton] {
+    margin-left: 8px;
+    margin-right: 8px;
+    &[outline] {
+        border-color: #fff !important;
+        color: #fff !important;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    &:not([outline]) {
+        border-color: #fff !important;
+        color: #3366ff !important;
+        background-color: #fff !important;
+    }
+}

@@ -1,0 +1,19 @@
+<nb-layout windowMode>
+    <nb-layout-header fixed>
+        <div class="col-8">
+            <h1>Chit App</h1>
+        </div>
+        <div class="col-4">
+            <a class="float-right" nbButton outline status="primary" [routerLink]="['/auth', 'login']">Log in</a>
+        </div>
+    </nb-layout-header>
+    <nb-layout-column class="bg-column d-flex align-items-center justify-content-center">
+        <div>
+            <a class="float-right" nbButton status="primary" [routerLink]="['/auth', 'register']">Register</a>
+            <a class="float-right" nbButton outline status="primary" [routerLink]="['/auth', 'login']">Log in</a>
+        </div>
+    </nb-layout-column>
+    <nb-layout-footer fixed>
+        <span class="created-by">Created with ♥ by <b><a href="https://szymanski.io" target="_blank">Szymen</a></b> 2019</span>
+    </nb-layout-footer>
+</nb-layout>

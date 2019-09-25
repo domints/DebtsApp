@@ -1,0 +1,23 @@
+@import 'themes';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/list-group";
+@import '~@nebular/theme/styles/globals';
+@include nb-install() {
+    @include nb-theme-global();
+}
+
+;
+
+/* You can add global styles to this file, and also import other style files */
