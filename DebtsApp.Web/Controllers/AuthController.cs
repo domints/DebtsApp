@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ChatUp.Web.Controllers
+namespace DebtsApp.Web.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController : ControllerBase
+    public class AuthController : BaseController
     {
         private readonly IUserRepository repo;
         private readonly IJwtService jwtService;
@@ -53,7 +53,7 @@ namespace ChatUp.Web.Controllers
         }
 
         [HttpDelete("logout")]
-        public async Task<IActionResult> Logout()
+        public IActionResult Logout()
         {
             return Ok();
         }

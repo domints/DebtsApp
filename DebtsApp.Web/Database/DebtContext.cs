@@ -45,5 +45,7 @@ namespace DebtsApp.Web.Database
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Debt> Debts { get; set; }
     }
 }
