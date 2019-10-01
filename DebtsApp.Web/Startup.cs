@@ -81,6 +81,7 @@ namespace DebtsApp.Web
         private void ConfigureRepositories(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
         }
 
         private void ConfigureSettings(IServiceCollection services)

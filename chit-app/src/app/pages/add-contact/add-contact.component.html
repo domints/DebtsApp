@@ -1,0 +1,17 @@
+<div class="row" *ngIf="isError">
+    <div class="col">
+        <nb-alert status="danger">Error occured during save</nb-alert>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-body>
+                <input nbInput fullwidth class="input-full-width" [(ngModel)]="contact.name" />
+                <div class="w-100">
+                    <button nbButton status="primary" class="float-right" (click)="save()">Save</button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

@@ -34,7 +34,7 @@ namespace DebtsApp.Web.Controllers
             if (user == null)
                 return Unauthorized(new FailLoginResult { Success = false });
 
-            var tokenString = jwtService.GetToken(userDto.Email, user.Name);
+            var tokenString = jwtService.GetToken(user.Id, userDto.Email, user.Name);
 
             // return basic user info (without password) and token to store client side
             return Ok(new SuccessLoginResult { Token = tokenString });
@@ -45,10 +45,10 @@ namespace DebtsApp.Web.Controllers
         public async Task<IActionResult> Register([FromBody]RegisterModel userDto)
         {
             var result = await repo.AddUser(userDto.Email, userDto.Password, userDto.FullName).ConfigureAwait(false);
-            if(!result)
+            if(result == null)
                 return Conflict();
             
-            var tokenString = jwtService.GetToken(userDto.Email, userDto.FullName);
+            var tokenString = jwtService.GetToken(result.Id, userDto.Email, userDto.FullName);
             return Ok(new SuccessLoginResult { Token = tokenString });
         }
 

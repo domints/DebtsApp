@@ -7,7 +7,7 @@ import { MENU_ITEMS } from './pages-menu';
   styleUrls: ['pages.component.scss'],
   template: `
     <ngx-one-column-layout>
-      <nb-menu [items]="menu"></nb-menu>
+      <nb-menu (itemClick)="console.log('kurwa')" class="kurwa" [items]="menu"></nb-menu>
       <router-outlet></router-outlet>
     </ngx-one-column-layout>
   `,
@@ -15,4 +15,7 @@ import { MENU_ITEMS } from './pages-menu';
 export class PagesComponent {
 
   menu = MENU_ITEMS;
+  itemClick() {
+    console.log("clickt");
+  }
 }

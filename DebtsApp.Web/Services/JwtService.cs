@@ -17,7 +17,7 @@ namespace DebtsApp.Web.Services
             config = cfg.Value;
         }
 
-        public string GetToken(string email, string name)
+        public string GetToken(long id, string email, string name)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = System.Text.Encoding.ASCII.GetBytes(config.SecretToken);
@@ -25,6 +25,7 @@ namespace DebtsApp.Web.Services
             {
                 Subject = new ClaimsIdentity(new Claim[] 
                 {
+                    new Claim(ClaimTypes.Sid, id.ToString()),
                     new Claim(ClaimTypes.Email, email),
                     new Claim(ClaimTypes.Name, name)
                 }),

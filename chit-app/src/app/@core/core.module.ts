@@ -95,14 +95,14 @@ export const NB_CORE_PROVIDERS = [
         },
         login: {
           redirect: {
-            success: '/app/',
+            success: '/app',
             failure: null, // stay on the same page
           },
         },
 
         register: {
           redirect: {
-            success: '/app/',
+            success: '/app',
             failure: null, // stay on the same page
           },
         }

@@ -10,5 +10,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'All chits',
     icon: 'flip-outline',
     link: '/app/list'
+  },
+  {
+    title: 'Contacts',
+    icon: 'people-outline',
+    link: '/app/contacts'
   }
 ];

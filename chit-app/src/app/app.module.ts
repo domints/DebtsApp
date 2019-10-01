@@ -7,7 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbDatepickerModule, NbDialogModule, NbWindowModule, NbToastrModule, NbButtonModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbMenuModule, NbDatepickerModule, NbDialogModule, NbWindowModule, NbToastrModule, NbButtonModule, NbCardModule, NbIconModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbAuthModule, NbPasswordAuthStrategy, NbAuthOptions, NbAuthJWTInterceptor, NB_AUTH_TOKEN_INTERCEPTOR_FILTER} from '@nebular/auth';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -16,19 +16,19 @@ import { CoreModule } from './@core/core.module';
 import { HomeComponent } from './home/home.component';
 import { HomeGuard } from './services/home.guard';
 import { AuthGuard } from './services/auth.guard';
-import { ListComponent } from './pages/list/list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ListComponent
+    HomeComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    FormsModule,
     RouterModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'dark' }),
@@ -49,7 +49,8 @@ import { ListComponent } from './pages/list/list.component';
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     NbButtonModule,
-    
+    NbCardModule,
+    NbIconModule,
     CoreModule.forRoot()
   ],
   providers: [

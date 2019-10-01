@@ -3,15 +3,17 @@ using System;
 using DebtsApp.Web.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DebtsApp.Web.Migrations
 {
     [DbContext(typeof(DebtContext))]
-    partial class DebtContextModelSnapshot : ModelSnapshot
+    [Migration("20191001170415_Add-Debts-And-Contact-Tables")]
+    partial class AddDebtsAndContactTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -17,22 +17,23 @@ namespace DebtsApp.Web.Repositories
             this.cx = cx;
         }
 
-        public async Task<bool> AddUser(string login, string password, string name)
+        public async Task<User> AddUser(string login, string password, string name)
         {
             var user = await cx.Users.Where(u => u.Email == login).FirstOrDefaultAsync().ConfigureAwait(false);
             if(user != null)
-                return false;
+                return null;
 
             CreatePasswordHash(password, out string hash, out string salt);
-            cx.Users.Add(new User
+            var newUser = new User
             {
                 Email = login,
                 Password = hash,
                 Seed = salt,
                 Name = name
-            });
+            };
+            cx.Users.Add(newUser);
             await cx.SaveChangesAsync().ConfigureAwait(false);
-            return true;
+            return newUser;
         }
 
         public async Task<User> VerifyPassword(string login, string password)
