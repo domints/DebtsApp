@@ -16,11 +16,13 @@ import { CoreModule } from './@core/core.module';
 import { HomeComponent } from './home/home.component';
 import { HomeGuard } from './services/home.guard';
 import { AuthGuard } from './services/auth.guard';
+import { ListComponent } from './pages/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ListComponent
   ],
   imports: [
     HttpClientModule,
@@ -47,13 +49,14 @@ import { AuthGuard } from './services/auth.guard';
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     NbButtonModule,
+    
     CoreModule.forRoot()
   ],
   providers: [
     HomeGuard,
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: NbAuthJWTInterceptor, multi: true},
-    { provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER, useValue: ((rq) =>  false) }
+    { provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER, useValue: function () { return false; } }
   ],
   bootstrap: [AppComponent]
 })
