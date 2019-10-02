@@ -1,7 +1,13 @@
+<div class="row" *ngIf="isError">
+    <div class="col">
+        <nb-alert status="danger">Error occured during save</nb-alert>
+    </div>
+</div>
 <div class="row">
     <div class="col">
-        <a nbButton status="primary" class="float-right mb-2" [routerLink]="['/app', 'contacts', 'add']">
-            <nb-icon icon="person-add-outline"></nb-icon>Add contact</a>
+        <button nbButton status="primary" class="float-right mb-2" (click)="addNew()">
+            <nb-icon icon="person-add-outline"></nb-icon>Add contact
+        </button>
     </div>
 </div>
 <div class="row">
@@ -13,16 +19,21 @@
                         <div class="flex-grow-1">
                             <div class="row">
                                 <div class="col-12">
-                                    <input nbInput type="text" [(ngModel)]="c.name" />
+                                    <strong *ngIf="!c.isEditing">{{c.name}}</strong>
+                                    <input *ngIf="c.isEditing" nbInput type="text" [(ngModel)]="c.name" />
                                 </div>
                                 <div class="col-12">
                                     {{c.balance}}
                                 </div>
                             </div>
                         </div>
-                        <div style="font-size: 20px;">
-                            <nb-icon icon="edit-outline" pack="eva"></nb-icon>
-                            <nb-icon icon="person-delete-outline" pack="eva"></nb-icon>
+                        <div class="action-buttons" *ngIf="!c.isEditing">
+                            <nb-icon icon="edit-outline" (click)="setEdit(c)" pack="eva"></nb-icon>
+                            <nb-icon icon="person-delete-outline" (click)="deleteContact(c)" pack="eva"></nb-icon>
+                        </div>
+                        <div class="action-buttons" *ngIf="c.isEditing">
+                            <nb-icon icon="save-outline" (click)="saveContact(c)" pack="eva"></nb-icon>
+                            <nb-icon icon="close-outline" (click)="resetEdit(c)" pack="eva"></nb-icon>
                         </div>
                     </nb-list-item>
                 </nb-list>

@@ -8,5 +8,7 @@ namespace DebtsApp.Web.Interfaces
     {
         Task<List<Contact>> GetAll(long userId);
         Task Add(long userId, Contact contact);
+        Task<bool> Update(long userId, long contactId, Contact contact);
+        Task<bool> Delete(long userId, long contactId);
     }
 }

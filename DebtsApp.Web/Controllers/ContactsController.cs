@@ -33,13 +33,23 @@ namespace DebtsApp.Web.Controllers
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] Contact value)
         {
+            var result = await contactRepo.Update(UserId.Value, id, value);
+            if(!result)
+                return NotFound();
+
+            return Ok();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var result = await contactRepo.Delete(UserId.Value, id);
+            if(!result)
+                return NotFound();
+
+            return Ok();
         }
     }
 }

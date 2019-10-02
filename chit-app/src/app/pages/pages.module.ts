@@ -8,7 +8,6 @@ import { ThemeModule } from '../@theme/theme.module';
 import { SummaryComponent } from './summary/summary.component';
 import { ListComponent } from './list/list.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { AddContactComponent } from './add-contact/add-contact.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -28,8 +27,7 @@ import { FormsModule } from '@angular/forms';
     PagesComponent,
     SummaryComponent,
     ListComponent,
-    ContactsComponent,
-    AddContactComponent
+    ContactsComponent
   ],
 })
 export class PagesModule {

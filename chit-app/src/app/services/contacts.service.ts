@@ -16,6 +16,14 @@ export class ContactsService {
   public addContact(c: Contact): Observable<{}> {
     return this.http.post('/api/contacts', c);
   }
+
+  public saveContact(c: Contact): Observable<{}> {
+    return this.http.put('/api/contacts/' + c.id, c);
+  }
+
+  public deleteContact(c: Contact): Observable<{}> {
+    return this.http.delete('/api/contacts/' + c.id);
+  }
 }
 
 export class Contact {
