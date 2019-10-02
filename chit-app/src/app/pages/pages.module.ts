@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule, NbCardModule, NbButtonModule, NbIconModule, NbAlertModule } from '@nebular/theme';
+import { NbMenuModule, NbCardModule, NbButtonModule, NbIconModule, NbAlertModule, NbListModule } from '@nebular/theme';
 
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
@@ -20,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     NbCardModule,
     NbButtonModule,
     NbIconModule,
-    NbAlertModule
+    NbAlertModule,
+    NbListModule
   ],
   declarations: [
     NotFoundComponent,

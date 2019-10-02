@@ -9,8 +9,8 @@ export class ContactsService {
 
   constructor(private http: HttpClient) { }
 
-  public getContacts(): Observable<Contact> {
-    return this.http.get<Contact>('/api/contacts');
+  public getContacts(): Observable<Contact[]> {
+    return this.http.get<Contact[]>('/api/contacts');
   }
 
   public addContact(c: Contact): Observable<{}> {

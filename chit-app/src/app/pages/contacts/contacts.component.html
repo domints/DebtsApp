@@ -1,15 +1,31 @@
 <div class="row">
     <div class="col">
-        <a nbButton status="primary" class="float-right mb-2" [routerLink]="['/app', 'contacts', 'add']"><nb-icon icon="person-add-outline"></nb-icon>Add contact</a>
+        <a nbButton status="primary" class="float-right mb-2" [routerLink]="['/app', 'contacts', 'add']">
+            <nb-icon icon="person-add-outline"></nb-icon>Add contact</a>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12">
         <nb-card>
             <nb-card-body>
-                <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12">
-                    Well, it works.
-                </div>
+                <nb-list>
+                    <nb-list-item class="contact d-flex" *ngFor="let c of contacts">
+                        <div class="flex-grow-1">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input nbInput type="text" [(ngModel)]="c.name" />
+                                </div>
+                                <div class="col-12">
+                                    {{c.balance}}
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-size: 20px;">
+                            <nb-icon icon="edit-outline" pack="eva"></nb-icon>
+                            <nb-icon icon="person-delete-outline" pack="eva"></nb-icon>
+                        </div>
+                    </nb-list-item>
+                </nb-list>
             </nb-card-body>
         </nb-card>
     </div>
