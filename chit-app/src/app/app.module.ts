@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { HomeGuard } from './services/home.guard';
 import { AuthGuard } from './services/auth.guard';
 import { FormsModule } from '@angular/forms';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { FormsModule } from '@angular/forms';
     NbCardModule,
     NbIconModule,
     NbListModule,
+    Ng2SmartTableModule,
     CoreModule.forRoot()
   ],
   providers: [

@@ -9,6 +9,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { ListComponent } from './list/list.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { FormsModule } from '@angular/forms';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     NbButtonModule,
     NbIconModule,
     NbAlertModule,
-    NbListModule
+    NbListModule,
+    Ng2SmartTableModule
   ],
   declarations: [
     NotFoundComponent,
