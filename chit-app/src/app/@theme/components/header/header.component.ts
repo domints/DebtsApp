@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe((isLessThanXl: boolean) => this.userPictureOnly = isLessThanXl);
-    this.menuService.onItemClick().subscribe({ next: () => this.sidebarService.collapse('menu-sidebar')});
+    this.menuService.onItemClick().subscribe({ next: () => this.userPictureOnly && this.sidebarService.collapse('menu-sidebar')});
   }
 
 

@@ -4,8 +4,7 @@ using DebtsApp.Web.APIModels;
 
 namespace DebtsApp.Web.Interfaces
 {
-    public interface IContactRepository : IBaseRepository<Contact>
+    public interface IDebtRepository : IBaseRepository<Debt>
     {
-        
     }
 }

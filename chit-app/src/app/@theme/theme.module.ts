@@ -12,6 +12,7 @@ import {
   NbSelectModule,
   NbIconModule,
   NbThemeModule,
+  NbListModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -37,6 +38,8 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
+import { DebtGridComponent } from './components/debt-grid/debt-grid.component';
+import { DebtLineItemComponent } from './components/debt-line-item/debt-line-item.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -51,6 +54,7 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
+  NbListModule
 ];
 const COMPONENTS = [
   HeaderComponent,
@@ -58,7 +62,9 @@ const COMPONENTS = [
   SearchInputComponent,
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent,
+  TwoColumnsLayoutComponent, 
+  DebtGridComponent, 
+  DebtLineItemComponent
 ];
 const PIPES = [
   CapitalizePipe,
@@ -75,6 +81,7 @@ const PIPES = [
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {
+    console.log("sheet")
     return <ModuleWithProviders>{
       ngModule: ThemeModule,
       providers: [

@@ -9,7 +9,17 @@ export class DebtsService {
 
   constructor(private http: HttpClient) { }
 
-  public getDebts(): Observable<{}> {
-    return this.http.get('/api/debts');
+  public getDebts(): Observable<Debt[]> {
+    return this.http.get<Debt[]>('/api/debts');
   }
+}
+
+export class Debt {
+  id: number;
+  value: number;
+  description: number;
+  isMyDebt: boolean;
+  isEditable: boolean;
+  otherId: number;
+  otherName: string;
 }

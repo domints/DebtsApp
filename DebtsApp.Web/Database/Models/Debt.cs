@@ -4,17 +4,14 @@ namespace DebtsApp.Web.Database.Models
     {
         public long Id { get; set; }
         public long CreatorId { get; set; }
-        public long? OwedId { get; set; }
-        public long? OwingId { get; set; }
-        public long? OwedContactId { get; set; }
-        public long? OwingContactId { get; set; }
+        public bool IsMyDebt { get; set; }
+        public long? OtherUserId { get; set; }
+        public long? OtherContactId { get; set; }
         public string Description { get; set; }
         public decimal Value { get; set; }
 
         public virtual User Creator { get; set; }
-        public virtual User Owed { get; set; }
-        public virtual User Owing { get; set; }
-        public virtual Contact OwedContact { get; set; }
-        public virtual Contact OwingContact { get; set; }
+        public virtual User OtherUser { get; set; }
+        public virtual Contact OtherContact { get; set; }
     }
 }
