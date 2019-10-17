@@ -1,5 +1,12 @@
-<nb-list>
-        <nb-list-item class="contact d-flex" *ngFor="let c of contacts">
-            <debt-line-item [item]="c"></debt-line-item>
-        </nb-list-item>
+<button nbButton status="primary" class="float-right mb-2" (click)="addNew()">
+    <nb-icon icon="person-add-outline"></nb-icon>Add debt
+</button>
+<h4 class="mt-1">Debt list</h4>
+<nb-list class="mt-3">
+    <nb-list-item class="d-flex" *ngFor="let i of items">
+        <debt-line-item [item]="i"></debt-line-item>
+    </nb-list-item>
+    <nb-list-item class="d-flex" *ngIf="items.length == 0">
+        No items yet. Add one with button above!
+    </nb-list-item>
 </nb-list>

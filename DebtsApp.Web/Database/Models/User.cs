@@ -1,6 +1,8 @@
+using DebtsApp.Web.Interfaces;
+
 namespace DebtsApp.Web.Database.Models
 {
-    public class User
+    public class User : IIdEntity
     {
         public long Id { get; set; }
         public string Email { get; set; }

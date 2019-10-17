@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -69,7 +70,12 @@ namespace DebtsApp.Web
             }
 
             app.UseDefaultFiles();
-            app.UseSpaStaticFiles();
+            FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".webmanifest"] = "application/manifest+json";
+            app.UseSpaStaticFiles(new StaticFileOptions 
+            {
+                ContentTypeProvider = provider
+            });
             app.UseAuthentication();
             app.UseMvc(routes =>
             {

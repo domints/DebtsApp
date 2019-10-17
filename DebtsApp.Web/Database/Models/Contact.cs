@@ -1,6 +1,8 @@
+using DebtsApp.Web.Interfaces;
+
 namespace DebtsApp.Web.Database.Models
 {
-    public class Contact
+    public class Contact : IIdEntity
     {
         public long Id { get; set; }
         public long OwnerUserId { get; set; }

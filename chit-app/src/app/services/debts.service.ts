@@ -9,9 +9,11 @@ export class DebtsService {
 
   constructor(private http: HttpClient) { }
 
-  public getDebts(): Observable<Debt[]> {
-    return this.http.get<Debt[]>('/api/debts');
+  public gridDebts(url: string, parameters?: { [param: string]: string | string[] }): Observable<Debt[]> {
+    return this.http.get<Debt[]>(url, { params: parameters} );
   }
+
+  public static allDebts: string = '/api/debts';
 }
 
 export class Debt {

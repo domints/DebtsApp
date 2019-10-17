@@ -11,11 +11,11 @@ import { throwIfAlreadyLoaded } from 'src/app/@core/module-import-guard';
 })
 export class ListComponent implements OnInit {
 
-  items: Debt[] = [];
+  url: string = DebtsService.allDebts;
   constructor(private debtsService: DebtsService) {
   }
 
   ngOnInit() {
-    this.debtsService.getDebts().subscribe({ next: (val) => this.items = val });
+    
   } 
 }

@@ -41,6 +41,13 @@ namespace DebtsApp.Web.Repositories
             return true;
         }
 
+        public Task<Contact> Get(long userId, long entityId)
+        {
+            return cx.Contacts.Where(c => c.Id == entityId && c.OwnerUserId == userId)
+                .Select(c => new Contact { Id = c.Id, Name = c.Name, IsChitUser = c.UserId.HasValue})
+                .FirstOrDefaultAsync();   
+        }
+
         public Task<List<Contact>> GetAll(long userId)
         {
             return cx.Contacts.Where(c => c.OwnerUserId == userId)

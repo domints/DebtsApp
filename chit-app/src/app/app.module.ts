@@ -53,6 +53,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     NbCardModule,
     NbIconModule,
     NbListModule,
+    NbWindowModule.forRoot(),
     Ng2SmartTableModule,
     CoreModule.forRoot()
   ],

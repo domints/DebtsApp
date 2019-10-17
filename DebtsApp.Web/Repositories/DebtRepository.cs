@@ -43,6 +43,19 @@ namespace DebtsApp.Web.Repositories
             return true;
         }
 
+        public Task<Debt> Get(long userId, long entityId)
+        {
+            return cx.Debts.Where(d => d.Id == entityId && d.CreatorId == userId).Select(d => 
+            new Debt {
+                Id = d.Id,
+                IsMyDebt = d.IsMyDebt,
+                Value = d.Value,
+                Description = d.Description,
+                OtherId = d.OtherContactId.Value,
+                OtherName = d.OtherContact.Name
+            }).FirstOrDefaultAsync();
+        }
+
         public Task<List<Debt>> GetAll(long userId)
         {
             return cx.Debts.Where(d => d.CreatorId == userId).Select(d => 

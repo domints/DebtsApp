@@ -40,6 +40,7 @@ import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
 import { DebtGridComponent } from './components/debt-grid/debt-grid.component';
 import { DebtLineItemComponent } from './components/debt-line-item/debt-line-item.component';
+import { DebtEditorComponent } from './components/debt-editor/debt-editor.component';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -56,6 +57,9 @@ const NB_MODULES = [
   NbEvaIconsModule,
   NbListModule
 ];
+const ENTRY_COMPONENTS = [
+  DebtEditorComponent
+]
 const COMPONENTS = [
   HeaderComponent,
   FooterComponent,
@@ -64,7 +68,8 @@ const COMPONENTS = [
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent, 
   DebtGridComponent, 
-  DebtLineItemComponent
+  DebtLineItemComponent,
+  ...ENTRY_COMPONENTS
 ];
 const PIPES = [
   CapitalizePipe,
@@ -78,6 +83,7 @@ const PIPES = [
   imports: [CommonModule, ...NB_MODULES],
   exports: [CommonModule, ...PIPES, ...COMPONENTS],
   declarations: [...COMPONENTS, ...PIPES],
+  entryComponents: [...ENTRY_COMPONENTS]
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {

@@ -1,6 +1,8 @@
+using DebtsApp.Web.Interfaces;
+
 namespace DebtsApp.Web.APIModels
 {
-    public class Debt
+    public class Debt : IIdEntity
     {
         public long Id { get; set; }
         public decimal Value { get; set; }

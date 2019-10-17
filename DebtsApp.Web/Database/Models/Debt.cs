@@ -1,6 +1,8 @@
+using DebtsApp.Web.Interfaces;
+
 namespace DebtsApp.Web.Database.Models
 {
-    public class Debt
+    public class Debt : IIdEntity
     {
         public long Id { get; set; }
         public long CreatorId { get; set; }
